@@ -7,6 +7,7 @@ import userRouter from "./routes/userRoutes.js";
 import applicationRouter from "./routes/applicationRouter.js";
 import jobRouter from "./routes/jobRouter.js";
 import { dbConnection } from './database/dbConnection.js';
+import { errorMiddleware } from './middlewares/error.js';
 // Configuring the environment variables
 const app = express();
 dotenv.config({ path: "./config/config.env" });
@@ -30,4 +31,6 @@ app.use('/api/v2/job', jobRouter);
 
 // Database connection
 dbConnection();
+// Error handling middleware
+app.use(errorMiddleware);
 export default app;
