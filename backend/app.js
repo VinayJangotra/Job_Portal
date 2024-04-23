@@ -3,6 +3,10 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import fileUpload from 'express-fileupload';
+import userRouter from "./routes/userRoutes.js";
+import applicationRouter from "./routes/applicationRouter.js";
+import jobRouter from "./routes/jobRouter.js";
+import { dbConnection } from './database/dbConnection.js';
 // Configuring the environment variables
 const app = express();
 dotenv.config({ path: "./config/config.env" });
@@ -18,5 +22,12 @@ app.use(express.urlencoded({ extended: true })); // for parsing application/x-ww
 app.use(fileUpload({
    useTempFiles:true,
    tempFileDir:'/tmp/', 
-}))
+}));
+// Mounting the routers
+app.use("/api/v1/user", userRouter);
+app.use('/api/v1/application', applicationRouter);
+app.use('/api/v2/job', jobRouter);
+
+// Database connection
+dbConnection();
 export default app;
