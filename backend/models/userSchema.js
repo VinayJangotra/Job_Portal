@@ -13,7 +13,7 @@ const userSchema = new mongoose.Schema({
     },
   },
   phone: { type: Number, required: [true, "can't be blank"]},
-  password: { type: String, required:[true,"can't be blank"], minLength: 6 },
+  password: { type: String, required:[true,"can't be blank"], minLength: 6, select: false},
   role:{
     type: String,
     enum: ['Job Seeker', 'Employer'],
@@ -42,3 +42,4 @@ userSchema.methods.geJWTToken = function () {
     expiresIn: process.env.JWT_EXPIRE,
   });
 };
+export const User = mongoose.model('User', userSchema);
