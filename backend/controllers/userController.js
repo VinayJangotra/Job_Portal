@@ -7,12 +7,12 @@ console.log(req.body);
   const { name, email, phone, password, role } = req.body;
 
   if (!name || !email || !phone || !password || !role) {
-    return next(new errorMiddleware("All fields are required", 400));
+    return next(new ErrorHandler("All fields are required", 400));
   }
 
   //checking if the user is already registered or not
   let user = await User.findOne({ email });
-  if (user) return next(new errorMiddleware("User already exists", 400));
+  if (user) return next(new ErrorHandler("User already exists", 400));
 
   //create and save a new user to database
   user = await User.create({
@@ -68,5 +68,14 @@ export const logout = catchAsyncError(async (req,res,next)=>{
     .json({
         success:true,
         message:"Logged out"
+    });
+});
+
+// Get currently logged in user details
+export const getUser=catchAsyncError(async(req,res,next)=>{
+    const user= req.user;
+    res.status(200).json({
+        success:true,
+        user
     });
 })
