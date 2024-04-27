@@ -98,3 +98,14 @@ export const deleteJob = catchAsyncError(async(req,res,next)=>{
         message: 'Job deleted successfully'
     });
 });
+// get single job details
+export const getJobDetails = catchAsyncError(async(req,res,next)=>{
+    const job = await Job.findById(req.params.id);
+    if(!job){
+        return next(new ErrorHandler('Job not found',404));
+    }
+    res.status(200).json({
+        success: true,
+        job
+    });
+});
