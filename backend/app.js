@@ -27,7 +27,7 @@ app.use(fileUpload({
 // Mounting the routers
 app.use("/api/v1/user", userRouter);
 app.use('/api/v1/application', applicationRouter);
-app.use('/api/v2/job', jobRouter);
+app.use('/api/v1/job', jobRouter);
 
 // Database connection
 dbConnection();
