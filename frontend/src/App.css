@@ -194,7 +194,49 @@ p {
     display: none;
   }
 }
+/* ...existing CSS... */
 
+/* Add a transition to the button hover state */
+.authPage .container form button:hover {
+  background: #1a3925;
+  transition: background 0.3s ease;
+}
+
+/* Add a transition to the link hover state */
+.authPage .container form a:hover {
+  color: #fff;
+  background: #2d5649;
+  transition: color 0.3s ease, background 0.3s ease;
+}
+
+/* Add a transition to the input focus state */
+.authPage .container form .inputTag div input:focus,
+.authPage .container form .inputTag div select:focus {
+  background: #e8e8e8;
+  transition: background 0.3s ease;
+}
+
+/* Add a media query for smaller screens */
+@media (max-width: 600px) {
+  .authPage .container {
+    padding: 10px;
+  }
+
+  .authPage .container .header img {
+    width: 200px;
+    height: 80px;
+  }
+
+  .authPage .container form .inputTag div svg {
+    font-size: 1.2rem;
+  }
+
+  .authPage .container form button,
+  .authPage .container form a {
+    font-size: 1rem;
+  }
+}
+/*Footer Section */
 .footerShow {
   background: #18191c;
   display: flex;
@@ -365,6 +407,52 @@ p {
     max-width: 100%;
   }
 }
+/* ...existing CSS... */
+
+/* Add a transition to the anchor tag hover state */
+.footerShow div a:hover {
+  color: #2d5649;
+  transform: scale(1.2);
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Add a transition to the card hover state */
+.heroSection .details .card:hover {
+  transition: all 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 2px 10px 10px -1px rgba(0, 0, 0, 0.17);
+}
+
+/* Add a media query for smaller screens */
+@media (max-width: 600px) {
+  .footerShow {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footerShow div {
+    flex-direction: column;
+  }
+
+  .footerShow div a {
+    margin-bottom: 10px;
+  }
+
+  .heroSection .container,
+  .heroSection .details {
+    padding: 10px;
+  }
+
+  .heroSection .container .title h1,
+  .heroSection .container .title p {
+    font-size: 16px;
+  }
+
+  .heroSection .details .card {
+    width: 100%;
+  }
+}
+
 .howitworks {
   background: #f1f3f6;
 }
@@ -710,6 +798,41 @@ p {
   display: flex;
   flex-direction: column;
 }
+/* ...existing CSS... */
+
+.jobDetail .container .banner a {
+  background-color: #2d5649;
+  color: rgb(233, 249, 255);
+  font-size: 20px;
+  font-weight: 400;
+  border: none;
+  padding: 12px 30px;
+  text-decoration: none;
+  margin-top: 10px;
+  width: fit-content;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.jobDetail .container .banner a:hover {
+  background-color: #18191c;
+  color: #f1f3f6;
+}
+
+@media (max-width: 600px) {
+  .jobDetail .container {
+    padding: 10px;
+  }
+
+  .jobDetail .container .banner a {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+
+  .application .container {
+    padding: 10px;
+  }
+}
+
 .application .container {
   min-width: 1500px;
   max-width: 1500px;
@@ -971,6 +1094,77 @@ p {
     width: 100%;
   }
 }
+.application .container {
+  min-width: 1500px;
+  max-width: 1500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 50px 20px;
+  transition: min-width 0.3s ease, max-width 0.3s ease;
+}
+
+.application .container form {
+  display: flex;
+  flex-direction: column;
+  width: 550px;
+  padding: 40px 20px;
+  gap: 25px;
+  margin: 0 auto;
+  margin-top: 35px;
+  transition: width 0.3s ease;
+}
+
+.application .container form input,
+.application .container form textarea {
+  border: none;
+  font-size: 20px;
+  border-bottom: 1px solid black;
+  padding: 12px 4px;
+  transition: font-size 0.3s ease, padding 0.3s ease;
+}
+
+.application .container form button {
+  background-color: #2d5649;
+  color: rgb(233, 249, 255);
+  font-size: 20px;
+  font-weight: 400;
+  border: none;
+  padding: 12px 30px;
+  text-decoration: none;
+  width: 100%;
+  transition: background-color 0.3s ease, color 0.3s ease, font-size 0.3s ease, padding 0.3s ease;
+}
+
+.application .container form button:hover {
+  background-color: #18191c;
+  color: #f1f3f6;
+}
+
+@media (max-width: 600px) {
+  .application .container {
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+  .application .container form {
+    width: 100%;
+  }
+
+  .application .container form input,
+  .application .container form textarea {
+    font-size: 16px;
+    padding: 10px 2px;
+  }
+
+  .application .container form button {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+}
+
+
 .myJobs {
   background: #f1f3f6;
   padding: 50px 20px;
@@ -1291,6 +1485,7 @@ nav .hamburger {
     width: 100%;
   }
 }
+
 .notfound {
   min-height: 750px;
 }
@@ -1393,6 +1588,111 @@ nav .hamburger {
   text-decoration: none;
   transition: background-color 0.3s ease;
 }
+.notfound {
+  min-height: 750px;
+  transition: min-height 0.3s ease;
+}
+
+.notfound .content a {
+  font-size: 20px;
+  font-weight: 500;
+  padding: 7px 30px;
+  background: transparent;
+  border: 1px solid #184235;
+  color: #184235;
+  text-decoration: none;
+  transition: font-size 0.3s ease, padding 0.3s ease;
+}
+
+.resume-modal {
+  width: 100%;
+  display: flex;
+  background: #00000085;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: height 0.3s ease;
+}
+
+.resume-modal .modal-content img {
+  max-width: 550px;
+  height: auto;
+  transition: max-width 0.3s ease;
+}
+
+.page_404 {
+  padding: 40px 0;
+  background: #fff;
+  font-family: 'Arvo', serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #333;
+  transition: height 0.3s ease;
+}
+
+.page_404 img {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  transition: max-width 0.3s ease;
+}
+
+.four_zero_four_bg h1 {
+  font-size: 3em;
+  color: #333;
+  transition: font-size 0.3s ease;
+}
+
+.link_404 {
+  color: #fff!important;
+  padding: 10px 20px;
+  background: #333;
+  margin: 20px 0;
+  display: inline-block;
+  text-decoration: none;
+  transition: background-color 0.3s ease, padding 0.3s ease;
+}
+
+@media (max-width: 600px) {
+  .notfound {
+    min-height: 100%;
+  }
+
+  .notfound .content a {
+    font-size: 16px;
+    padding: 5px 15px;
+  }
+
+  .resume-modal {
+    height: 100%;
+  }
+
+  .resume-modal .modal-content img {
+    max-width: 100%;
+  }
+
+  .page_404 {
+    height: 100%;
+  }
+
+  .page_404 img {
+    max-width: 100%;
+  }
+
+  .four_zero_four_bg h1 {
+    font-size: 2em;
+  }
+
+  .link_404 {
+    padding: 5px 10px;
+  }
+}
+
+/* ...existing CSS... */
 /* 
 .link_404:hover {
   background-color: #555;
